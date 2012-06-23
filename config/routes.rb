@@ -3,8 +3,6 @@ Drugstore::Application.routes.draw do
 
   devise_for :admin_users, ActiveAdmin::Devise.config
 
-  resources :providers
-
   devise_for :users
 
   # The priority is based upon order of creation:
