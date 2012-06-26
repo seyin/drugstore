@@ -1,0 +1,20 @@
+mysql_defaults: &mysql_defaults
+  adapter: mysql2
+  username: root
+  password: [your_password]
+  host: localhost
+
+development:
+  <<: *mysql_defaults
+  database: drugstore_dev
+
+test: &test
+  <<: *mysql_defaults
+  database: drugstore_test
+
+production:
+  <<: *mysql_defaults
+  database: drugstore_production
+  username: root
+  password: [your_password]
+  host: localhost
