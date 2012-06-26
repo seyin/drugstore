@@ -10,6 +10,7 @@ gem 'mysql2'
 gem 'devise'
 gem 'haml-rails'
 gem 'activeadmin'
+gem 'nifty-generators'
 
 
 # Gems used only for assets and not required
@@ -40,3 +41,5 @@ gem 'jquery-rails'
 
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
+
+gem "mocha", :group => :test
