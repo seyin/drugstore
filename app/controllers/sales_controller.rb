@@ -1,4 +1,6 @@
 class SalesController < ApplicationController
+  layout 'internal'
+
   def index
     @sales = Sale.all
   end
