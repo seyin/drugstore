@@ -1,6 +1,8 @@
 class SalesController < ApplicationController
   layout 'internal'
 
+  before_filter :authenticate_user!
+
   def index
     @sales = Sale.all
   end
