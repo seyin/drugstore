@@ -4,6 +4,12 @@ es:
       medicine:
         one: "Medicamento"
         other: "Medicamentos"
+      laboratory:
+        one: "Laboratorio"
+        other: "Laboratorios"
+      presentation:
+        one: "Presentación"
+        other: "Presentaciones"
     attributes:
       medicine:
         commercial_name: "Nombre Comercial"
@@ -11,6 +17,15 @@ es:
         concentration: "Concentración"
         presentation: "Presentación"
         laboratory: "Laboratorio"
+        created_at: "Creado en"
+      updated_at: "Modificado en"
+      laboratory:
+        name: "Nombre"
+        desciption: "Descripción"
+        created_at: "Creado en"
+        updated_at: "Modificado en"
+      presentation:
+        name: "Nombre"
         created_at: "Creado en"
         updated_at: "Modificado en"
   active_admin:
