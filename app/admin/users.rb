@@ -6,4 +6,6 @@ ActiveAdmin.register User do
       f.buttons
     end
   end
+   # The authorization is done using the AdminAbility class
+  controller.authorize_resource
 end

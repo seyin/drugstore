@@ -127,3 +127,17 @@ ActiveAdmin.setup do |config|
   # To load a javascript file:
   #   config.register_javascript 'my_javascript.js'
 end
+
+ActiveAdmin::ResourceController.class_eval do
+  protected
+
+  def current_ability
+    @current_ability ||= Ability.new(current_user)
+  end
+
+    def check_admin_role
+    return if current_user.admin?
+    flash[:notice] = "You need to be an admin to access this part of the application"
+    redirect_to root_path
+  end
+end
