@@ -55,8 +55,9 @@ ActiveAdmin.setup do |config|
   #
   # This setting changes the method which Active Admin calls
   # within the controller.
-  config.authentication_method = :require_admin
+  #config.authentication_method = :require_admin
 
+  config.before_filter :check_admin
 
   # == Current User
   #
@@ -135,7 +136,7 @@ ActiveAdmin::ResourceController.class_eval do
     @current_ability ||= Ability.new(current_user)
   end
 
-    def check_admin_role
+  def check_admin
     return if current_user.admin?
     flash[:notice] = "You need to be an admin to access this part of the application"
     redirect_to root_path

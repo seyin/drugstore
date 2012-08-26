@@ -24,8 +24,4 @@ class ApplicationController < ActionController::Base
       { locale: I18n.locale }
   end
 
-  def require_admin
-    redirect_to root_path, :alert => "Access Denied, You are not an Admin user." unless current_user.admin?
-  end
-
 end
