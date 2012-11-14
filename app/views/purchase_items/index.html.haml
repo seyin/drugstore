@@ -1,0 +1,25 @@
+- title "Purchase Items"
+
+%table
+  %tr
+    %th Medicine
+    %th Purchase
+    %th Container
+    %th Quantity
+    %th Quantity unit container
+    %th Price
+    %th Due date
+  - for purchase_item in @purchase_items
+    %tr
+      %td= purchase_item.medicine_id
+      %td= purchase_item.purchase_id
+      %td= purchase_item.container
+      %td= purchase_item.quantity
+      %td= purchase_item.quantity_unit_container
+      %td= purchase_item.price
+      %td= purchase_item.due_date
+      %td= link_to 'Show', purchase_item
+      %td= link_to 'Edit', edit_purchase_item_path(purchase_item)
+      %td= link_to 'Destroy', purchase_item, :confirm => 'Are you sure?', :method => :delete
+
+%p= link_to "New Purchase Item", new_purchase_item_path

@@ -1,0 +1,11 @@
+one:
+  medicine_id: 1
+  sale_id: 1
+  quantity: 1
+  price: 9.99
+
+two:
+  medicine_id: 1
+  sale_id: 1
+  quantity: 1
+  price: 9.99

@@ -1,0 +1,32 @@
+= form_for @purchase_item do |f|
+  = f.error_messages
+  %p
+    = f.label :medicine_id
+    %br
+    = f.number_field :medicine_id
+  %p
+    = f.label :purchase_id
+    %br
+    = f.number_field :purchase_id
+  %p
+    = f.label :container
+    %br
+    = f.text_field :container
+  %p
+    = f.label :quantity
+    %br
+    = f.number_field :quantity
+  %p
+    = f.label :quantity_unit_container
+    %br
+    = f.number_field :quantity_unit_container
+  %p
+    = f.label :price
+    %br
+    = f.text_field :price
+  %p
+    = f.label :due_date
+    %br
+    = f.date_select :due_date
+  %p
+    = f.submit

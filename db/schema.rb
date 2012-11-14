@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120821205539) do
+ActiveRecord::Schema.define(:version => 20121112174220) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -28,11 +28,19 @@ ActiveRecord::Schema.define(:version => 20120821205539) do
   add_index "active_admin_comments", ["namespace"], :name => "index_active_admin_comments_on_namespace"
   add_index "active_admin_comments", ["resource_type", "resource_id"], :name => "index_admin_notes_on_resource_type_and_resource_id"
 
+  create_table "inventories", :force => true do |t|
+    t.integer  "medicine_id"
+    t.integer  "quantity"
+    t.decimal  "sale_price",  :precision => 10, :scale => 0
+    t.datetime "created_at",                                 :null => false
+    t.datetime "updated_at",                                 :null => false
+  end
+
   create_table "laboratories", :force => true do |t|
     t.string   "name"
-    t.text     "desciption"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.text     "description"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "medicines", :force => true do |t|
@@ -51,10 +59,38 @@ ActiveRecord::Schema.define(:version => 20120821205539) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "purchase_items", :force => true do |t|
+    t.integer  "medicine_id"
+    t.integer  "purchase_id"
+    t.string   "container"
+    t.integer  "quantity"
+    t.integer  "quantity_unit_container"
+    t.decimal  "price",                   :precision => 10, :scale => 0
+    t.date     "due_date"
+    t.datetime "created_at",                                             :null => false
+    t.datetime "updated_at",                                             :null => false
+  end
+
+  create_table "purchases", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "sale_items", :force => true do |t|
+    t.integer  "medicine_id"
+    t.integer  "sale_id"
+    t.integer  "quantity"
+    t.decimal  "price",       :precision => 10, :scale => 0
+    t.datetime "created_at",                                 :null => false
+    t.datetime "updated_at",                                 :null => false
+  end
+
   create_table "sales", :force => true do |t|
-    t.string   "description"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.string   "client"
+    t.string   "nit"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "users", :force => true do |t|

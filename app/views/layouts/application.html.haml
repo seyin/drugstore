@@ -1,6 +1,5 @@
 !!!
 %html
-
   %head
     %title
       = yield(:title) || t('.title')
@@ -11,11 +10,30 @@
     = yield(:head)
 
   %body
-    #container
-      - flash.each do |name, msg|
-        = content_tag :div, msg, :id => "flash_#{name}"
+    %div{:class => 'navbar navbar-fixed-top navbar-inverse'}
+      %div{:class => 'navbar-inner'}
+        .container
+          = link_to '', :class => 'btn btn-navbar', 'data-toggle' => 'collapse', 'data-target' => '.nav-collapse' do
+            %span{:class => 'icon-bar'}
+            %span{:class => 'icon-bar'}
+            %span{:class => 'icon-bar'}
+          = link_to 'Drugstore', {}, :class => 'brand'
+          %div{:class => 'nav-collapse'}
+            - if user_signed_in?
+              %ul.nav
+                %li= link_to 'Home', home_path
+                %li= link_to 'Sales', sales_path
+                %li= link_to 'Purchases', purchases_path
+                %li= link_to 'Admin Section', admin_dashboard_path if current_user.admin?
+                %li= link_to 'Logout', destroy_user_session_path, method: 'delete'
 
-      - if show_title?
-        %h1= yield(:title)
+    .container
+      .row
+        .span12
+          - flash.each do |name, msg|
+            = content_tag :div, msg, :id => "flash_#{name}"
 
-      = yield
+          - if show_title?
+            %h1= yield(:title)
+
+          = yield

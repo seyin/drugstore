@@ -1,0 +1,16 @@
+= form_for @inventory do |f|
+  = f.error_messages
+  %p
+    = f.label :medicine_id
+    %br
+    = f.number_field :medicine_id
+  %p
+    = f.label :quantity
+    %br
+    = f.number_field :quantity
+  %p
+    = f.label :sale_price
+    %br
+    = f.text_field :sale_price
+  %p
+    = f.submit

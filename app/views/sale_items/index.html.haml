@@ -1,0 +1,19 @@
+- title "Sale Items"
+
+%table
+  %tr
+    %th Medicine
+    %th Sale
+    %th Quantity
+    %th Price
+  - for sale_item in @sale_items
+    %tr
+      %td= sale_item.medicine_id
+      %td= sale_item.sale_id
+      %td= sale_item.quantity
+      %td= sale_item.price
+      %td= link_to 'Show', sale_item
+      %td= link_to 'Edit', edit_sale_item_path(sale_item)
+      %td= link_to 'Destroy', sale_item, :confirm => 'Are you sure?', :method => :delete
+
+%p= link_to "New Sale Item", new_sale_item_path

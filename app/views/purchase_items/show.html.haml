@@ -1,0 +1,30 @@
+- title "Purchase Item"
+
+%p
+  %strong Medicine:
+  = @purchase_item.medicine_id
+%p
+  %strong Purchase:
+  = @purchase_item.purchase_id
+%p
+  %strong Container:
+  = @purchase_item.container
+%p
+  %strong Quantity:
+  = @purchase_item.quantity
+%p
+  %strong Quantity Unit Container:
+  = @purchase_item.quantity_unit_container
+%p
+  %strong Price:
+  = @purchase_item.price
+%p
+  %strong Due Date:
+  = @purchase_item.due_date
+
+%p
+  = link_to "Edit", edit_purchase_item_path(@purchase_item)
+  |
+  = link_to "Destroy", @purchase_item, :confirm => 'Are you sure?', :method => :delete
+  |
+  = link_to "View All", purchase_items_path

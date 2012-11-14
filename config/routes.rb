@@ -1,7 +1,16 @@
 Drugstore::Application.routes.draw do
 
+  resources :inventories
 
-  resources :sales
+  resources :purchases do
+    resources :purchase_items
+  end
+
+  resources :sales do
+    resources :sale_items
+  end
+
+  get '/' => 'home#index', :as => 'home'
 
   ActiveAdmin.routes(self)
 
@@ -58,7 +67,7 @@ Drugstore::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => 'sales#index'
+  root :to => 'home#index'
 
   # See how all your routes lay out with "rake routes"
 

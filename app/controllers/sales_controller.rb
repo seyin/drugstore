@@ -1,5 +1,5 @@
 class SalesController < ApplicationController
-  layout 'internal'
+  #layout 'internal'
 
   before_filter :authenticate_user!
 

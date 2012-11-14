@@ -1,0 +1,18 @@
+- title "Inventory"
+
+%p
+  %strong Medicine:
+  = @inventory.medicine_id
+%p
+  %strong Quantity:
+  = @inventory.quantity
+%p
+  %strong Sale Price:
+  = @inventory.sale_price
+
+%p
+  = link_to "Edit", edit_inventory_path(@inventory)
+  |
+  = link_to "Destroy", @inventory, :confirm => 'Are you sure?', :method => :delete
+  |
+  = link_to "View All", inventories_path

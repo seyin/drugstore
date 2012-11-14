@@ -1,0 +1,17 @@
+one:
+  medicine_id: 1
+  purchase_id: 1
+  container: MyString
+  quantity: 1
+  quantity_unit_container: 1
+  price: 9.99
+  due_date: 2012-11-09
+
+two:
+  medicine_id: 1
+  purchase_id: 1
+  container: MyString
+  quantity: 1
+  quantity_unit_container: 1
+  price: 9.99
+  due_date: 2012-11-09

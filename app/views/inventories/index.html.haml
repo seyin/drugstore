@@ -1,0 +1,17 @@
+- title "Inventories"
+
+%table
+  %tr
+    %th Medicine
+    %th Quantity
+    %th Sale price
+  - for inventory in @inventories
+    %tr
+      %td= inventory.medicine_id
+      %td= inventory.quantity
+      %td= inventory.sale_price
+      %td= link_to 'Show', inventory
+      %td= link_to 'Edit', edit_inventory_path(inventory)
+      %td= link_to 'Destroy', inventory, :confirm => 'Are you sure?', :method => :delete
+
+%p= link_to "New Inventory", new_inventory_path

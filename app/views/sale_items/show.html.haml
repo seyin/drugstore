@@ -1,0 +1,21 @@
+- title "Sale Item"
+
+%p
+  %strong Medicine:
+  = @sale_item.medicine_id
+%p
+  %strong Sale:
+  = @sale_item.sale_id
+%p
+  %strong Quantity:
+  = @sale_item.quantity
+%p
+  %strong Price:
+  = @sale_item.price
+
+%p
+  = link_to "Edit", edit_sale_item_path(@sale_item)
+  |
+  = link_to "Destroy", @sale_item, :confirm => 'Are you sure?', :method => :delete
+  |
+  = link_to "View All", sale_items_path
