@@ -1,5 +1,4 @@
-- title "New Inventory"
-
-= render 'form'
-
-%p= link_to "Back to List", inventories_path
+- model_class = Inventory
+.page-header
+  %h1=t '.title', :default => t('helpers.titles.new', :model => model_class.model_name.human, :default => "New #{model_class.model_name.human}")
+= render :partial => "form"
