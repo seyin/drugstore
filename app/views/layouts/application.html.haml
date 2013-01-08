@@ -24,7 +24,7 @@
                 %li= link_to 'Home', home_path
                 %li= link_to 'Sales', sales_path
                 %li= link_to 'Purchases', purchases_path
-                %li= link_to 'Inventories', inventories_path
+                %li= link_to 'Inventories', inventories_path, remote: true
                 %li= link_to 'Admin Section', admin_dashboard_path if current_user.admin?
                 %li= link_to 'Logout', destroy_user_session_path, method: 'delete'
 

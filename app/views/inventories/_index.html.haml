@@ -1,6 +1,8 @@
 - model_class = Inventory
 .page-header
   %h1=t '.title', :default => model_class.model_name.human.pluralize
+
+= link_to t('.new', :default => t("helpers.links.new")), '#', :class => 'btn btn-primary', :id => 'new_inventory'
 %table.table.table-striped
   %thead
     %tr
@@ -8,7 +10,6 @@
       %th= model_class.human_attribute_name(:medicine_id)
       %th= model_class.human_attribute_name(:quantity)
       %th= model_class.human_attribute_name(:sale_price)
-      %th= model_class.human_attribute_name(:created_at)
       %th=t '.actions', :default => t("helpers.actions")
   %tbody
     - @inventories.each do |inventory|
@@ -17,9 +18,6 @@
         %td= inventory.medicine_id
         %td= inventory.quantity
         %td= inventory.sale_price
-        %td=l inventory.created_at
         %td
           = link_to t('.edit', :default => t("helpers.links.edit")), edit_inventory_path(inventory), :class => 'btn btn-mini'
           = link_to t('.destroy', :default => t("helpers.links.destroy")), inventory_path(inventory), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-mini btn-danger'
-
-= link_to t('.new', :default => t("helpers.links.new")), new_inventory_path, :class => 'btn btn-primary'

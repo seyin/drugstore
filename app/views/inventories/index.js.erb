@@ -1,0 +1,21 @@
+$('.span12').html("<%= j render('index') %>");
+$('#new_inventory').click(function(){
+    $("<div id='modal_box'></div>").dialog({
+        open: function(){
+            $(this).parent().css('z-index', '1030');
+            $.ajax({
+                dataType: 'script',
+                url: '<%= new_inventory_path %>'
+            });
+        },
+        title: 'New inventory',
+        modal: true,
+        draggable: false,
+        resizable: false,
+        width: 600,
+        position: 'top',
+        close: function(){
+            $(this).dialog ('destroy').remove();
+        }
+    });
+});
